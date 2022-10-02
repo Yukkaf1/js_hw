@@ -1535,7 +1535,20 @@ const cart = {
  }
 
     },
-    clear() {},
+
+    clear() {
+        this.items = []
+    },
+    countTotalPrice () {
+        console.log(this.items);
+        let total = 0;
+
+        for(const item  of this.items) {
+            total += item.price;
+        }
+        return total;
+    },
+
     increaseQuatity(produktName) {},
     deccreasQuatity(produktName) {},
 };
@@ -1549,7 +1562,14 @@ cart.add({name: "melon", price: 250});
 
 // console.table(cart.getItems());
 
-cart.remuve("lime");
+// cart.remuve("lime");
 
-console.table(cart.getItems());
+// console.table(cart.getItems());
+
+// cart.clear();
+// console.table(cart.getItems());
+
+console.log("Total", cart.countTotalPrice());
+
+
 
