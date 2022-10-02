@@ -1041,11 +1041,11 @@ let friends = [
 
 // console.log(totalPrice);
 
-let cart = [
-    {id: 1, product:"Apple", price: 1200, qty: 2},
-    {id: 2, product:"Samsung", price: 800, price: 800, qty: 1},
-    {id: 2, product:"LG", price: 800, price: 1000, qty: 3},
-];
+// let cart = [
+//     {id: 1, product:"Apple", price: 1200, qty: 2},
+//     {id: 2, product:"Samsung", price: 800, price: 800, qty: 1},
+//     {id: 2, product:"LG", price: 800, price: 1000, qty: 3},
+// ];
 
 // let cartSum = cart.reduce((total, cartItem) =>{
 //     return total + cartItem.price;
@@ -1391,4 +1391,165 @@ let cart = [
 // console.log(shop.calcTotalPrice("Diamond"));
 // shop.calcTotalPrice({name: "Diamond",  price: 150, qty: 15});
 
-// ==================== 
+// // ==================== 
+
+// const playlist = {
+//     name: "Мой плелйлист",
+//     rating: 5, 
+//     tracks: ["трек-1", "трек-2", "трек-3"],
+//     treckCount: 3,
+
+// };
+
+// const {name, rating, tracks, trecCount} = playlist;
+
+// // console.log(name);
+
+// tracks.push("track-7");
+
+// console.log(tracks[0]);
+
+// =================================
+// const playlist = {
+//     name: "Мой плелйлист",
+//     rating: 5,
+//     tracks: ["трек-1", "трек-2", "трек-3"],
+//     treckCount: 3,
+
+// };
+
+// const {name, rating: rat = 0, tracks, trecCount} = playlist;
+
+// console.log(rat);
+
+// ================================
+
+// const profile = {
+//     name: "Jacques Gluke",
+//     tag: "jgluke",
+//     location: "Oho Rios, Jamaica",
+//     avatar: "monstr",
+//     stats: {
+//         folowers: 5566,
+//         views: 4827,
+//         likes: 1388,
+//     },
+// };
+
+// // const {name, tag, stats} = profile;
+
+// // // console.log(name, stats);
+
+// // const { folowers, views, likes} = stats;
+
+// // console.log (name, views);
+
+// // глубокая деструктуризация
+// const {name, tag, stats: { folowers: myfolowers = 5, views, likes}} = profile;
+// console.log (name, views);
+
+// ===деструктуризация практич пример
+
+// const authors = {
+//     kiwi: 4, 
+//     poly: 7, 
+//     ajax: 9,
+//     mango: 6,
+
+// };
+
+// const entries = Object.entries(authors);
+
+// for ([name, rating] of entries) {
+//     console.log(name, rating);
+// };
+
+// ===============================
+
+// const profile = {
+//     name: "Jacques Gluke",
+//     tag: "jgluke",
+//     location: "Oho Rios, Jamaica",
+//     avatar: "monstr",
+//     stats: {
+//         folowers: 5566,
+//         views: 4827,
+//         likes: 1388,
+//     },
+// };
+
+// const {name, tag, avatar, ... rest} = profile;
+
+// console.log(rest);
+
+// ======================================
+// const schowProfileInfo = function (userProfiele) {
+// const {name, tag, location, avatar, stats: { folowers, views, likes}
+// } = userProfiele;
+
+// console.log(name);
+// };
+
+// const schowProfileInfo = function ({name, tag, location, avatar, stats: { folowers, views, likes}
+// }) {
+
+// console.log(name);
+// };
+
+// const profile = {
+//     name: "Jacques Gluke",
+//     tag: "jgluke",
+//     location: "Oho Rios, Jamaica",
+//     avatar: "monstr",
+//     stats: {
+//         folowers: 5566,
+//         views: 4827,
+//         likes: 1388,
+//     },
+// };
+
+// schowProfileInfo(profile);
+
+
+// ================================== КОРЗИНА
+
+const cart = {
+    items: [],
+    getItems (){
+        return this.items;
+    },
+    add(product) {
+        this.items.push(product);
+    },
+
+    remuve(produktName) {
+       
+ for (let i = 0; i < this.items.length; i += 1) {
+    const item = this.items[i];
+   
+    if(produktName === item.name) {
+        console.log("find product", produktName);
+
+        this.items.splice(i,1);
+    }
+ }
+
+    },
+    clear() {},
+    increaseQuatity(produktName) {},
+    deccreasQuatity(produktName) {},
+};
+
+// console.log(cart.getItems());
+
+cart.add({name: "apple", price: 50});
+cart.add({name: "lime", price: 80});
+cart.add({name: "banana", price: 100});
+cart.add({name: "melon", price: 250});
+
+// console.table(cart.getItems());
+
+cart.remuve("lime");
+
+console.table(cart.getItems());
+
