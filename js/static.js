@@ -1513,63 +1513,367 @@ let friends = [
 
 // ================================== КОРЗИНА
 
-const cart = {
-    items: [],
-    getItems (){
-        return this.items;
-    },
-    add(product) {
-        this.items.push(product);
-    },
+// const cart = {
+//     items: [],
+//     getItems (){
+//         return this.items;
+//     },
+//     add(product) {
 
-    remuve(produktName) {
+//         for (const item of this.items) {
+//             if (item.name == product.name) {
+//                 item.quantity += 1;
+//                 return;
+//             }
+//         }
+
+//         const newProduct = {
+//             ...product,
+//             quantity: 1,
+//         };
+
+//         this.items.push(newProduct);
+//     },
+
+//     remuve(produktName) {
        
- for (let i = 0; i < this.items.length; i += 1) {
-    const item = this.items[i];
+//  for (let i = 0; i < this.items.length; i += 1) {
+//     const item = this.items[i];
    
-    if(produktName === item.name) {
-        console.log("find product", produktName);
+//     if(produktName === item.name) {
+//         console.log("find product", produktName);
 
-        this.items.splice(i,1);
+//         this.items.splice(i,1);
+//     }
+//  }
+
+//     },
+
+//     clear() {
+//         this.items = []
+//     },
+
+//     countTotalPrice () {
+//         console.log(this.items);
+//         const {items} = this;
+//         let total = 0;
+
+//         for(const {price} of items) {
+//             total += price;
+//         }
+//         return total;
+//     },
+
+//     increaseQuatity(produktName) {},
+//     deccreasQuatity(produktName) {},
+// };
+
+// // console.log(cart.getItems());
+
+// cart.add({name: "apple", price: 50});
+// cart.add({name: "lime", price: 80});
+// cart.add({name: "lime", price: 80});
+// cart.add({name: "banana", price: 100});
+// cart.add({name: "melon", price: 250});
+// cart.add({name: "melon", price: 250});
+// cart.add({name: "melon", price: 250});
+
+// // console.table(cart.getItems());
+
+// // cart.remuve("lime");
+
+// // console.table(cart.getItems());
+
+// // cart.clear();
+// // console.table(cart.getItems());
+
+// console.log("Total", cart.countTotalPrice());
+
+
+// ====================================== modul 3/19
+// const products = [
+//     { name: "Radar", price: 1300, quantity: 4 },
+//     { name: "Scanner", price: 2700, quantity: 3 },
+//     { name: "Droid", price: 400, quantity: 7 },
+//     { name: "Grip", price: 1200, quantity: 9 },
+//   ];
+  
+//   function getAllPropValues(propName) {
+//     // Change code below this line
+//     const propValue = [];
+//   for (const product of products) {
+    
+//     const keys = Object.keys(product);
+//     for (const key of keys) {
+//      if (key === propName) {
+//        propValue.push(product[key]);
+//      }
+//     }
+//   }
+//     return propValue;
+//   };
+
+//   console.log(getAllPropValues("quantity"));
+
+  // ================================================ modul 3/20
+
+// const products = [
+//   { name: "Radar", price: 1300, quantity: 4 },
+//   { name: "Scanner", price: 2700, quantity: 3 },
+//   { name: "Droid", price: 400, quantity: 7 },
+//   { name: "Grip", price: 1200, quantity: 9 },
+// ];
+
+// function calculateTotalPrice(productName) {
+//   // Пиши код ниже этой строки
+// for (const product of products) {
+//   if (product.name === productName) {
+//     return product.price*product.quantity
+//   }
+// }
+
+
+//   // Пиши код выше этой строки
+// };
+
+// console.log(calculateTotalPrice("Grip"));
+
+
+// ==================== modul 3/24
+
+// const colors = [
+//     { hex: "#f44336", rgb: "244,67,54" },
+//     { hex: "#2196f3", rgb: "33,150,243" },
+//     { hex: "#4caf50", rgb: "76,175,80" },
+//     { hex: "#ffeb3b", rgb: "255,235,59" },
+//   ];
+  
+//   const hexColors = [];
+//   const rgbColors = [];
+//   // Change code below this line
+  
+//   for (const color of colors) {
+//     const { hex, rgb } = color;
+//     hexColors.push(hex);
+//     rgbColors.push(rgb);
+//   };
+
+//   console.log(hexColors);
+//   console.log(rgbColors);
+
+// ================================= банковский счет
+
+// const Transaction = {
+//     DEPOSIT: "deposit",
+//     WITHDRAW: "withdraw",
+// };
+
+// const account = {
+//     balance: 0,
+//     transactions: [ ],
+//     creatTransaction(amount, type, message = "ok") {
+//         const transaction = {
+//             id: this.transactions.length, // UUID
+//             amount,
+//             type,
+//             date: new Date(),
+//             message,
+//         }
+//     this.transactions.push(transaction);
+//     },
+
+//     deposit(amount) {
+//         this.balance += amount;
+//         this.creatTransaction(amount, Transaction.DEPOSIT);
+//     },
+
+//     withdraw(amount) {
+//         if (amount > this.balance) {
+//             console.log("sorry");
+//             this.creatTransaction(amount, Transaction.WITHDRAW, "sory, not");
+//             return;
+//         }
+
+//         this.balance -= amount;
+//         this.creatTransaction(amount, Transaction.WITHDRAW);
+//     },
+
+//     getBalance() {
+// return this.balance;
+//     },
+
+//     getTransactionDetails(id){
+//         for (const tr of this.transactions) {
+//             if (tr.id === id) {
+//             return tr;
+//             }
+//         }
+//         return "Transaction not found";
+//     },
+
+//     getTransactionTotal(type) {
+//         let summ = 0;
+//         for (const tr of this.transactions) {
+//             if (tr.type === type) {
+//             summ += tr.amount;
+//             }
+//         }
+//         return summ;
+//     },
+    
+// };
+
+// console.log(account.getBalance());
+// account.deposit(100);
+// account.deposit(100);
+
+// account.withdraw(50);
+// account.withdraw(500);
+// console.log(account.getBalance());
+// console.log(account.transactions);
+
+// console.log(account.getTransactionDetails(2));
+// console.log(account.getTransactionDetails(8));
+
+// console.log(account.getTransactionTotal(Transaction.DEPOSIT));
+// console.log(account.getTransactionTotal(Transaction.WITHDRAW));
+
+
+//================================ modul 3 / 32
+
+// function addOverNum(number, ...args) {
+//     let total = 0;
+//     console.log(number);
+//     console.log(args);
+//     for (const arg of args) {
+//       if (arg > number) {
+//       total += arg;
+//       }
+//     }
+  
+//     return total;
+//     // Change code above this line
+//   };
+  
+//   console.log(addOverNum(12, 2, 34,56,7,8,90));
+
+// =================================== modul 3 / 33
+// function findMatches(arr1, ...arr2 ) {
+//     const matches = []; // Don't change this line
+//     for (const i of arr1) {
+//         console.log(i);
+//       for (const y of arr2) {
+//         console.log(y);
+//       if (i === y ) {
+        
+//         matches.push(y);
+//       }
+//     }
+//     // Change code above this line
+//     return matches;
+//   }
+// };
+
+// console.log(findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7));
+
+
+// ========== ьщвгд 3 - 35
+
+// const bookShelf = {
+//     books: ["The last kingdom", "Haze", "The guardian of dreams"],
+//     updateBook(oldName, newName) {
+//       // Change code below this line
+  
+//       const bookIndex = this.books.indexOf(oldName);
+//       console.log(bookIndex);
+//       this.books.splice(bookIndex, 1, newName) ;
+  
+//       // Change code above this line
+//     }
+//   };
+
+//   console.log(bookShelf.updateBook("Haze", "Mosel"));
+
+
+  // ==================== modul 5 - 41
+
+  const atTheOldToad = {
+    potions: [
+      { name: "Speed potion", price: 460 },
+      { name: "Dragon breath", price: 780 },
+      { name: "Stone skin", price: 520 },
+    ],
+    // Change code below this line
+    getPotions() {
+      return this.potions;
+    },
+
+    addPotion(newPotion) {
+        for (const potion of this.potions) {
+      if (potion.name === newPotion.name) {
+        return `ADD Error! Potion ${newPotion} is already in your inventory!`;
+        
+      }
+      else this.potions.push(newPotion);
+    
     }
- }
-
     },
 
-    clear() {
-        this.items = []
+    removePotion(potionName) {
+        for (let i = 0; i < this.potions.length; i += 1) {
+            const item = this.potions[i];
+           
+            if (item.name == potionName) {
+                console.log("find product", potionName);
+                this.potions.splice(i,1);
+            }
+           else {
+            return `REMOVE Error Potion ${potionName} is not in inventory!`;}
+          }
     },
-    countTotalPrice () {
-        console.log(this.items);
-        let total = 0;
 
-        for(const item  of this.items) {
-            total += item.price;
+    removePotion2(potionName) {
+        
+        for (const potion of this.potions) { {
+            const indexOfPotion = this.potions.indexOf(potion);
+          
+            if (potion.name === potionName) {
+                console.log("find product", potionName);
+                this.potions.splice(indexOfPotion,1);
+            }
+           else  {
+            return `REMOVE Error Potion ${potionName} is not in inventory!`;}
+          }
+    }
+},
+
+    updatePotionName(oldName, newName) {
+        for (let i = 0; i < this.potions.length; i += 1) {
+           const item = this.potions[i];
+       
+           if (item.name === oldName) {
+            this.potions.splice(i, 1, newName);
+            
+           }
+           return `UPDATE Error Potion ${oldName} is not in inventory!`;
         }
-        return total;
-    },
-
-    increaseQuatity(produktName) {},
-    deccreasQuatity(produktName) {},
-};
-
-// console.log(cart.getItems());
-
-cart.add({name: "apple", price: 50});
-cart.add({name: "lime", price: 80});
-cart.add({name: "banana", price: 100});
-cart.add({name: "melon", price: 250});
-
-// console.table(cart.getItems());
-
-// cart.remuve("lime");
-
-// console.table(cart.getItems());
-
-// cart.clear();
-// console.table(cart.getItems());
-
-console.log("Total", cart.countTotalPrice());
+         },
+    // Change code above this line
+  };
 
 
-
+//   newPotion1 = {
+//     name:"Spice",
+//     price: 780,
+//   }
+  console.log(atTheOldToad.getPotions());
+//   console.log(atTheOldToad.addPotion({
+//     name:"Spice",
+//     price: 780,
+//   }));
+// console.log(atTheOldToad.removePotion("Speed potion"));
+// console.log(atTheOldToad.removePotion("Stone skin"));
+  console.log(atTheOldToad.removePotion2("Speed potion"));
+console.log(atTheOldToad.removePotion("Stone skin"));
+  console.log(atTheOldToad.getPotions());
+//   console.log(atTheOldToad.updatePotionName("Dragon breath", "Dragon"));
