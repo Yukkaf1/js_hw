@@ -1827,8 +1827,8 @@ let friends = [
                 console.log("find product", potionName);
                 this.potions.splice(i,1);
             }
-           else {
-            return `REMOVE Error Potion ${potionName} is not in inventory!`;}
+        //    else {
+            // return `REMOVE Error Potion ${potionName} is not in inventory!`;}
           }
     },
 
@@ -1841,8 +1841,8 @@ let friends = [
                 console.log("find product", potionName);
                 this.potions.splice(indexOfPotion,1);
             }
-           else  {
-            return `REMOVE Error Potion ${potionName} is not in inventory!`;}
+        //    else  {
+            // return `REMOVE Error Potion ${potionName} is not in inventory!`;}
           }
     }
 },
@@ -1874,6 +1874,6 @@ let friends = [
 // console.log(atTheOldToad.removePotion("Speed potion"));
 // console.log(atTheOldToad.removePotion("Stone skin"));
   console.log(atTheOldToad.removePotion2("Speed potion"));
-console.log(atTheOldToad.removePotion("Stone skin"));
+console.log(atTheOldToad.removePotion2("Stone skin"));
   console.log(atTheOldToad.getPotions());
 //   console.log(atTheOldToad.updatePotionName("Dragon breath", "Dragon"));
