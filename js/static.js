@@ -1820,32 +1820,35 @@ let friends = [
     },
 
     removePotion(potionName) {
+         let itemFound = false;
         for (let i = 0; i < this.potions.length; i += 1) {
             const item = this.potions[i];
            
-            if (item.name == potionName) {
+            if (item.name === potionName) {
+                itemFound = true;
                 console.log("find product", potionName);
                 this.potions.splice(i,1);
             }
-           else {
-            return `REMOVE Error Potion ${potionName} is not in inventory!`;}
+        
           }
+        if (!itemFound) {
+          return `REMOVE Error Potion ${potionName} is not in inventory!`;}
     },
 
     removePotion2(potionName) {
-        
-        for (const potion of this.potions) { {
+      let itemFound = false;
+        for (const potion of this.potions) { 
             const indexOfPotion = this.potions.indexOf(potion);
           
             if (potion.name === potionName) {
                 console.log("find product", potionName);
                 this.potions.splice(indexOfPotion,1);
             }
-           else  {
-            return `REMOVE Error Potion ${potionName} is not in inventory!`;}
-          }
-    }
-},
+            if (!itemFound) {
+              return `Potion ${potionName} is not in inventory!`;}
+            }
+          },
+
 
     updatePotionName(oldName, newName) {
         for (let i = 0; i < this.potions.length; i += 1) {
@@ -1855,9 +1858,23 @@ let friends = [
             this.potions.splice(i, 1, newName);
             
            }
-           return `UPDATE Error Potion ${oldName} is not in inventory!`;
+           return `Potion ${oldName} is not in inventory!`;
         }
          },
+
+    updatePotionName2 (oldName, newName) {
+      // let potionFound = false;
+      for (const potion of this.potions) { 
+          
+        if (potion.name === oldName) {
+            potion.name = newName;
+            // potionFound = true;
+             }
+            //  if (!potionFound) {
+            //   return`Potion ${oldName} is not in inventory!`;}
+           }
+          },
+
     // Change code above this line
   };
 
@@ -1866,14 +1883,15 @@ let friends = [
 //     name:"Spice",
 //     price: 780,
 //   }
-  console.log(atTheOldToad.getPotions());
+  // console.log(atTheOldToad.getPotions());
 //   console.log(atTheOldToad.addPotion({
 //     name:"Spice",
 //     price: 780,
 //   }));
-// console.log(atTheOldToad.removePotion("Speed potion"));
+// console.log(atTheOldToad.removePotion("Speed"));
 // console.log(atTheOldToad.removePotion("Stone skin"));
-  console.log(atTheOldToad.removePotion2("Speed potion"));
-console.log(atTheOldToad.removePotion("Stone skin"));
+  // console.log(atTheOldToad.removePotion2("Speed potion"));
+// console.log(atTheOldToad.removePotion("Stone skin"));
   console.log(atTheOldToad.getPotions());
-//   console.log(atTheOldToad.updatePotionName("Dragon breath", "Dragon"));
+  console.log(atTheOldToad.updatePotionName2("Stone skin", "Dragon"));
+  console.log(atTheOldToad.getPotions());
